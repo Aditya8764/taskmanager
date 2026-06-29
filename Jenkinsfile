@@ -77,8 +77,6 @@ pipeline {
  
         stage('Build Docker Image') {
             steps {
-                bat "docker build -t task-manager:${env.BUILD_NUMBER} ."
-                
                 echo "Building Docker image..."
  
                 bat 'docker build -t %IMAGE_NAME%:%IMAGE_TAG% .'
