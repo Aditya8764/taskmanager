@@ -94,10 +94,13 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 echo "Deploying application to Kubernetes..."
- 
+
                 bat 'kubectl apply -f k8s/deployment.yaml'
- 
+
                 bat 'kubectl apply -f k8s/service.yaml'
+
+                // Add this line to force Kubernetes to pull the newly built v1 image
+                bat 'kubectl rollout restart deployment/task-manager'
             }
         }
  
