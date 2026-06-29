@@ -3,7 +3,7 @@ pipeline {
     agent any
  
     tools {
-        jdk 'kubectl get podsJDK25'
+        jdk 'JDK25'
         maven 'Maven-3.9.16'
     }
  
@@ -19,7 +19,7 @@ pipeline {
                 echo "Checking out source code from GitHub..."
  
                 git branch: 'main',
-                    url: "https://github.com/Aditya8764/taskmanager"
+                    url: 'https://github.com/Aditya8764/taskmanager.git'
             }
         }
  
@@ -152,3 +152,4 @@ pipeline {
     }
  
 }
+ 
